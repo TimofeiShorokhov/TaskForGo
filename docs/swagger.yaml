@@ -1,0 +1,89 @@
+definitions:
+  Controller.Response:
+    properties:
+      data:
+        $ref: '#/definitions/Controller.UserResponse'
+      length:
+        type: integer
+      response_id:
+        type: string
+      status:
+        type: integer
+    type: object
+  Controller.UserRequest:
+    properties:
+      name:
+        type: string
+      surname:
+        type: string
+    type: object
+  Controller.UserResponse:
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      request_date:
+        type: string
+      surname:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: Realized GET and POST methods
+  title: Test Task
+paths:
+  /user:
+    post:
+      consumes:
+      - application/json
+      description: post a new user
+      parameters:
+      - description: User
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/Controller.UserResponse'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/Controller.UserResponse'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: postUser
+      tags:
+      - User
+  /users:
+    get:
+      consumes:
+      - application/json
+      description: get all responses and requests
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/Controller.UserRequest'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: getUsers
+      tags:
+      - Responses and Requests
+swagger: "2.0"

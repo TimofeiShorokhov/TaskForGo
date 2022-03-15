@@ -2,7 +2,7 @@
 
 Solution for test task.
 
-To test endpoint you can use swagger on http://localhost:8080/swagger/index.html
+To test endpoints you can use swagger on http://localhost:8080/swagger/index.html
 
 List of endpoints:
 

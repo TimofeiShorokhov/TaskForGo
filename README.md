@@ -10,7 +10,7 @@ Post: http://localhost:8080/user
 
 Get: http://localhost:8080/requests, http://localhost:8080/responses
 
-In post method you should to input body in json format like this:
+In post method you should input body in json format like this:
 
 {
     "name" : "MyName",

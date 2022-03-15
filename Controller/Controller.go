@@ -36,7 +36,7 @@ var responses []Response
 // @Tags User
 // @Accept  json
 // @Produce  json
-// @Param input body UserResponse true "User"
+// @Param input body UserRequest true "User"
 // @Success 200 {object} UserResponse
 // @Failure 400 {string} string
 // @Failure 500 {string} err
@@ -74,27 +74,42 @@ func PostUser(ctx *gin.Context) {
 	ctx.IndentedJSON(http.StatusCreated, newResponse)
 }
 
-// getResponsesAndRequest godoc
+// getRequests godoc
 // @Summary getUsers
-// @Description get all responses and requests
-// @Tags Responses and Requests
+// @Description get all requests
+// @Tags Requests
 // @Accept  json
 // @Produce  json
-// @Success 200 {object} Response
 // @Success 200 {object} UserRequest
 // @Failure 400 {string} string
 // @Failure 500 {string} string
-// @Router /users [get]
-func GetUsers(ctx *gin.Context) {
+// @Router /requests [get]
+func GetRequests(ctx *gin.Context) {
 
 	if usersResponse == nil {
 		ctx.IndentedJSON(http.StatusOK, []UserResponse{})
 		return
 	}
 
-	ctx.JSON(http.StatusOK, "Responses")
-	ctx.IndentedJSON(http.StatusOK, responses)
-	ctx.JSON(http.StatusOK, "Requests")
 	ctx.IndentedJSON(http.StatusOK, usersRequest)
+}
+
+// getResponses godoc
+// @Summary getResponses
+// @Description get all responses
+// @Tags Responses
+// @Accept  json
+// @Produce  json
+// @Success 200 {object} Response
+// @Failure 400 {string} string
+// @Failure 500 {string} string
+// @Router /responses [get]
+func GetResponses(ctx *gin.Context) {
+
+	if usersResponse == nil {
+		ctx.IndentedJSON(http.StatusOK, []UserResponse{})
+		return
+	}
+	ctx.IndentedJSON(http.StatusOK, responses)
 
 }

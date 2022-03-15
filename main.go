@@ -1,7 +1,8 @@
 package main
 
 import (
-	"TestTask/Controller"
+	"TaskForGo/Controller"
+	_ "github.com/TimofeiShorokhov/TaskForGo/docs"
 	"github.com/gin-gonic/gin"
 	"github.com/swaggo/files"
 	"github.com/swaggo/gin-swagger"

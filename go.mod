@@ -1,4 +1,4 @@
-module TestTask
+module TaskForGo
 
 go 1.17
 
@@ -14,7 +14,6 @@ require (
 	github.com/KyleBanks/depth v1.2.1 // indirect
 	github.com/PuerkitoBio/purell v1.1.1 // indirect
 	github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578 // indirect
-	github.com/TimofeiShorokhov/TestTask v0.0.0-20220315120903-54d0264bcc6d // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-openapi/jsonpointer v0.19.5 // indirect
 	github.com/go-openapi/jsonreference v0.19.6 // indirect

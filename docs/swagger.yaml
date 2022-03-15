@@ -33,6 +33,52 @@ info:
   description: Realized GET and POST methods
   title: Test Task
 paths:
+  /requests:
+    get:
+      consumes:
+      - application/json
+      description: get all requests
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/Controller.UserRequest'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: getUsers
+      tags:
+      - Requests
+  /responses:
+    get:
+      consumes:
+      - application/json
+      description: get all responses
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/Controller.Response'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: getResponses
+      tags:
+      - Responses
   /user:
     post:
       consumes:
@@ -44,7 +90,7 @@ paths:
         name: input
         required: true
         schema:
-          $ref: '#/definitions/Controller.UserResponse'
+          $ref: '#/definitions/Controller.UserRequest'
       produces:
       - application/json
       responses:
@@ -63,27 +109,4 @@ paths:
       summary: postUser
       tags:
       - User
-  /users:
-    get:
-      consumes:
-      - application/json
-      description: get all responses and requests
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/Controller.UserRequest'
-        "400":
-          description: Bad Request
-          schema:
-            type: string
-        "500":
-          description: Internal Server Error
-          schema:
-            type: string
-      summary: getUsers
-      tags:
-      - Responses and Requests
 swagger: "2.0"

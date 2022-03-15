@@ -1,11 +1,11 @@
 package main
 
 import (
-	"TaskForGo/Controller"
+	"github.com/TimofeiShorokhov/TaskForGo/Controller"
 	_ "github.com/TimofeiShorokhov/TaskForGo/docs"
 	"github.com/gin-gonic/gin"
-	"github.com/swaggo/files"
 	"github.com/swaggo/gin-swagger"
+	"github.com/swaggo/gin-swagger/swaggerFiles"
 )
 
 // @title Test Task
@@ -14,7 +14,8 @@ func main() {
 	router := gin.Default()
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	router.SetTrustedProxies([]string{"192.168.1.2"})
-	router.GET("/users", Controller.GetUsers)
+	router.GET("/requests", Controller.GetRequests)
+	router.GET("/responses", Controller.GetResponses)
 	router.POST("/user", Controller.PostUser)
 	router.Run("localhost:8080")
 
